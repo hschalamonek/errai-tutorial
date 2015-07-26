@@ -14,7 +14,7 @@
     <!-- The following framework versions need to be compatible with each other -->
     <errai.version>3.2.0.CR1</errai.version>
     <gwt.version>2.7.0</gwt.version>
-    <javaee.version>1.0.2.Final</javaee.version>
+    <javaee.version>1.0.2.Final</javaee.version> <!-- Must be the same as what is defined inside Errai BOM -->
 
     <errai.dev.context>${project.artifactId}</errai.dev.context>
     <wildfly.version>9.0.1.Final</wildfly.version>
@@ -163,6 +163,8 @@
           <soyc>false</soyc>
           <hostedWebapp>src/main/webapp</hostedWebapp>
           <strict>true</strict>
+
+          <!-- Change this to the number of cores minus one if you don't want to kill your PC when building -->
           <localWorkers>3</localWorkers>
         </configuration>
       </plugin>
@@ -192,8 +194,7 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-      <!-- Unpack jboss-as from maven. Remove this if you wish to use your
-        own jboss/wildfly instance. -->
+      <!-- Unpack jboss-as from maven. Remove this if you wish to use your own jboss/wildfly instance. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
