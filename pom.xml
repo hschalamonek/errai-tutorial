@@ -151,13 +151,14 @@
             to avoid class loading problems for classes that are not needed on the server. 
             To configure an alternative package filter for client-only classes, specify: 
             -Derrai.client.local.class.pattern=.*/myproject/client/.* -->
-          <extraJvmArgs>-Xmx512m -XX:CompileThreshold=7000 -Derrai.jboss.home=${errai.jboss.home} -Derrai.dev.context=${errai.dev.context}</extraJvmArgs>
+          <extraJvmArgs>-server -Xmx512m -XX:CompileThreshold=7000 -Derrai.jboss.home=${errai.jboss.home} -Derrai.dev.context=${errai.dev.context}</extraJvmArgs>
           <server>org.jboss.errai.cdi.server.gwt.EmbeddedWildFlyLauncher</server>
           <disableCastChecking>true</disableCastChecking>
           <runTarget>${errai.dev.context}/index.html</runTarget>
           <soyc>false</soyc>
           <hostedWebapp>src/main/webapp</hostedWebapp>
           <strict>true</strict>
+         <localWorkers>3</localWorkers>
         </configuration>
       </plugin>
       <plugin>
