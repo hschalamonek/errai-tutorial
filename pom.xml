@@ -17,7 +17,7 @@
     <javaee.version>1.0.2.Final</javaee.version>
 
     <errai.dev.context>${project.artifactId}</errai.dev.context>
-    <wildfly.version>9.0.0.Final</wildfly.version>
+    <wildfly.version>9.0.1.Final</wildfly.version>
 
     <!-- This is used only when running GWT in dev mode -->
     <errai.jboss.home>${project.build.directory}/wildfly-${wildfly.version}</errai.jboss.home>
