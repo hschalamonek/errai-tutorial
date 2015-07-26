@@ -68,11 +68,6 @@ public class ComplaintForm extends Composite {
   private TextArea text;
 
   @Inject
-  @Bound
-  @DataField
-  private ValueImage image;
-
-  @Inject
   @DataField
   private Button submit;
 

@@ -11,7 +11,7 @@ public class Config implements Configuration {
   public String getRemoteLocation() {
     // When compiling to a native application the absolute path to the server
     // side errai bus endpoint needs to be specified.
-    // return "http://10.15.16.207:8080/errai-tutorial/";
-    return "";
+     return "http://localhost:8080/errai-tutorial/";
+//    return "";
   }
 }

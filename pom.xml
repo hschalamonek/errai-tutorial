@@ -155,6 +155,12 @@
 
           <!-- Change this to the number of cores minus one if you don't want to kill your PC when building -->
           <localWorkers>3</localWorkers>
+
+          <!-- Bind dev server to same port where Wildfly will be normally. We hard-code this into the application for now,
+            so that the cordova-packaged app can reach the dev server as well via Google DevTools port forwarding.
+            Should use maven build profiles for this in the future. -->
+          <bindAddress>localhost</bindAddress>
+          <port>8080</port>
         </configuration>
       </plugin>
       <plugin>
