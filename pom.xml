@@ -9,7 +9,7 @@
   <name>Errai::Tutorial</name>
 
   <properties>
-    <errai.version>3.2.0-SNAPSHOT</errai.version>
+    <errai.version>3.2.0.CR1</errai.version>
     <gwt.version>2.7.0</gwt.version>
     <slf4j.version>1.5.11</slf4j.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -79,13 +79,6 @@
       <artifactId>errai-weld-integration</artifactId>
     </dependency>
   </dependencies>
-
-  <repositories>
-    <repository>
-      <id>JBOSS_NEXUS</id>
-      <url>http://repository.jboss.org/nexus/content/groups/public</url>
-    </repository>
-  </repositories>
 
   <build>
     <finalName>${project.artifactId}</finalName>
