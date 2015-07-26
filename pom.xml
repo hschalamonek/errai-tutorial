@@ -9,15 +9,18 @@
   <name>Errai::Tutorial</name>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- The following framework versions need to be compatible with each other -->
     <errai.version>3.2.0.CR1</errai.version>
     <gwt.version>2.7.0</gwt.version>
-    <slf4j.version>1.5.11</slf4j.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <javaee.version>1.0.2.Final</javaee.version>
+
     <errai.dev.context>${project.artifactId}</errai.dev.context>
-    <as.version>9.0.0.Final</as.version>
-    <!-- Add the absolute path for $JBOSS_HOME below to manage another instance -->
-    <errai.jboss.home>${project.build.directory}/wildfly-${as.version}</errai.jboss.home>
+    <wildfly.version>9.0.0.Final</wildfly.version>
+
+    <!-- This is used only when running GWT in dev mode -->
+    <errai.jboss.home>${project.build.directory}/wildfly-${wildfly.version}</errai.jboss.home>
   </properties>
 
   <dependencyManagement>
@@ -206,7 +209,7 @@
                 <artifactItem>
                   <groupId>org.wildfly</groupId>
                   <artifactId>wildfly-dist</artifactId>
-                  <version>${as.version}</version>
+                  <version>${wildfly.version}</version>
                   <type>zip</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}</outputDirectory>
@@ -221,7 +224,7 @@
 
   <profiles>
     <profile>
-      <id>jboss7</id>
+      <id>wildfly</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
