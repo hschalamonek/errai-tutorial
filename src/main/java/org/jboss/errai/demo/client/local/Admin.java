@@ -13,7 +13,6 @@ import org.jboss.errai.jpa.sync.client.local.ClientSyncManager;
 import org.jboss.errai.jpa.sync.client.shared.SyncResponse;
 import org.jboss.errai.ui.client.widget.ListWidget;
 import org.jboss.errai.ui.client.widget.Table;
-import org.jboss.errai.ui.cordova.events.OnlineEvent;
 import org.jboss.errai.ui.nav.client.local.Page;
 import org.jboss.errai.ui.nav.client.local.PageShown;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
@@ -121,18 +120,5 @@ public class Admin extends Composite {
     syncManager.getExpectedStateEm().flush();
     syncManager.getDesiredStateEm().merge(userComplaint);
     syncManager.getDesiredStateEm().flush();
-  }
-
-  /**
-   * This method will be invoked when the client is back online after loosing
-   * its connection. It triggers synchronization of the local data with the
-   * server.
-   * 
-   * @param onlineEvent
-   *          The event object indicating that the client is back online.
-   */
-  @SuppressWarnings("unused")
-  private void online(@Observes OnlineEvent onlineEvent) {
-    sync();
   }
 }
