@@ -352,5 +352,55 @@
         </dependency>
       </dependencies>
     </profile>
+
+    <profile>
+      <id>cordova-dev</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>hu.schalamonek.maven.plugins</groupId>
+            <artifactId>cordova-maven-plugin</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <configuration>
+              <platforms>
+                <platform>android</platform>
+                <platform>ios</platform>
+              </platforms>
+              <cordovaPlugins>
+<!--                 <cordovaPlugin>cordova-plugin-device</cordovaPlugin> -->
+<!--                 <cordovaPlugin>cordova-plugin-console</cordovaPlugin> -->
+              </cordovaPlugins>
+              <wwwDir>src/main/webapp</wwwDir>
+              <excludes>META-INF/**, WEB-INF/**</excludes>
+<!--               <codeServer>localhost</codeServer> TODO overwrite this in app.nocache.js -->
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
+    <profile>
+      <id>cordova-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>hu.schalamonek.maven.plugins</groupId>
+            <artifactId>cordova-maven-plugin</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <configuration>
+              <platforms>
+                <platform>android</platform>
+                <platform>ios</platform>
+              </platforms>
+              <cordovaPlugins>
+                <cordovaPlugin>cordova-plugin-device</cordovaPlugin>
+                <cordovaPlugin>cordova-plugin-console</cordovaPlugin>
+              </cordovaPlugins>
+              <excludes>META-INF/**, WEB-INF/**</excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 </project>
