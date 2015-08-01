@@ -117,6 +117,24 @@
             </lifecycleMappingMetadata>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>hu.schalamonek.maven.plugins</groupId>
+          <artifactId>cordova-maven-plugin</artifactId>
+          <version>0.1.0-SNAPSHOT</version>
+          <configuration>
+            <platforms>
+              <platform>android</platform>
+<!--                 <platform>ios</platform> -->
+            </platforms>
+            <cordovaPlugins>
+<!--                 <cordovaPlugin>cordova-plugin-device</cordovaPlugin> -->
+<!--                 <cordovaPlugin>cordova-plugin-console</cordovaPlugin> -->
+            </cordovaPlugins>
+            <wwwDir>src/main/webapp</wwwDir>
+            <excludes>META-INF/**,WEB-INF/**</excludes>
+            <codeServer>localhost</codeServer> <!-- connect to this in superdevmode -->
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -189,7 +207,7 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-      <!-- Unpack jboss-as from maven. Remove this if you wish to use your own jboss/wildfly instance. -->
+      <!-- Unpack jboss-as from maven. Remove this if you wish to use your own jboss/wildfly instance -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -243,7 +261,7 @@
         </plugins>
       </build>
       <dependencies>
-        <!-- This is needed to deploy in Wildfly without vfs related errors. -->
+        <!-- This is needed to deploy in Wildfly without vfs related errors -->
         <dependency>
           <groupId>org.jboss.errai</groupId>
           <artifactId>errai-jboss-as-support</artifactId>
@@ -354,50 +372,30 @@
     </profile>
 
     <profile>
-      <id>cordova-dev</id>
+      <id>cordova</id>
       <build>
         <plugins>
           <plugin>
             <groupId>hu.schalamonek.maven.plugins</groupId>
             <artifactId>cordova-maven-plugin</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
-            <configuration>
-              <platforms>
-                <platform>android</platform>
-                <platform>ios</platform>
-              </platforms>
-              <cordovaPlugins>
-<!--                 <cordovaPlugin>cordova-plugin-device</cordovaPlugin> -->
-<!--                 <cordovaPlugin>cordova-plugin-console</cordovaPlugin> -->
-              </cordovaPlugins>
-              <wwwDir>src/main/webapp</wwwDir>
-              <excludes>META-INF/**, WEB-INF/**</excludes>
-<!--               <codeServer>localhost</codeServer> TODO overwrite this in app.nocache.js -->
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    
-    <profile>
-      <id>cordova-release</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>hu.schalamonek.maven.plugins</groupId>
-            <artifactId>cordova-maven-plugin</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
-            <configuration>
-              <platforms>
-                <platform>android</platform>
-                <platform>ios</platform>
-              </platforms>
-              <cordovaPlugins>
-                <cordovaPlugin>cordova-plugin-device</cordovaPlugin>
-                <cordovaPlugin>cordova-plugin-console</cordovaPlugin>
-              </cordovaPlugins>
-              <excludes>META-INF/**, WEB-INF/**</excludes>
-            </configuration>
+            <executions>
+              <execution>
+                <id>create</id>
+                <goals>
+                  <goal>create</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>build</id>
+                <goals>
+                  <goal>build</goal>
+                </goals>
+                <configuration>
+                  <debug>false</debug>
+                  <release>true</release>
+                </configuration>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
